@@ -1,17 +1,31 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Navbar from './Navbar'
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./Navbar";
 
-import './../css/default.css'
+import "./../css/default.css";
+import LandingPage from "./LandingPage";
+import MovieDetails from "./movies/MovieDetails";
+import NewMovies from "./movies/NewMovies";
+import UpcomingMovies from "./movies/UpcomingMovies";
+import PopularMovies from "./movies/PopularMovies";
+import BestRatedMovies from "./movies/BestRatedMovies";
+import SearchBar from "./SearchBar";
 
 const App = () => {
-    return (
-        <Routes>
-            <Route exact path='/' element={<Navbar />}>
-                <Route path='home' element={}></Route>
-            </Route>
-        </Routes>
-    )
-}
+  return (
+    <Routes>
+      <Route exact path="/" element={<Navbar />}>
+        <Route path="home" element={<LandingPage />}></Route>
+        <Route path="/movies" element={<SearchBar />}>
+          <Route path="latest" element={<NewMovies />}></Route>
+          <Route path="upcoming" element={<UpcomingMovies />}></Route>
+          <Route path="best-rated" element={<BestRatedMovies />}></Route>
+          <Route path="popular" element={<PopularMovies />}></Route>
+        </Route>
+        <Route exact path="/movies/:id" element={<MovieDetails />}></Route>
+      </Route>
+    </Routes>
+  );
+};
 
-export default App
+export default App;
