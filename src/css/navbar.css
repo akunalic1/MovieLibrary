@@ -1,0 +1,41 @@
+.movie-links {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 20;
+  height: auto;
+}
+.navbar-color {
+  background-color: var(--dark-gray);
+}
+.movie-links > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.movie-links > div > * {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+}
+
+.login-btn:hover {
+  border: 1px solid var(--dark-red);
+  background-color: var(--dark-red);
+  color: white;
+}
+.logo > *,
+.logo > a > span {
+  font-family: "Righteous", cursive;
+  font-size: larger;
+}
+.links > * {
+  margin: 0 1rem;
+}

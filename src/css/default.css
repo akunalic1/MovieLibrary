@@ -1,0 +1,54 @@
+:root {
+  --dark-blue: #05233c;
+  --light-green: #228759;
+  --dark-gray: #202223;
+  --dark-red: #cc1c48;
+  --light-gray: #bcc2c5;
+
+  --font-raleway: "Raleway", sans-serif;
+  --font-righteous: "Righteous", cursive;
+  --font-helvetica: Arial, Helvetica, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-raleway);
+}
+body {
+  background-color: var(--dark-gray);
+}
+.text-righteous {
+  font-family: "Righteous", cursive;
+}
+.text-raleway {
+  font-family: var(--font-raleway);
+}
+.text-red {
+  color: var(--dark-red);
+}
+.text-white {
+  color: white;
+}
+.bg-color-dark {
+  background-color: var(--dark-gray);
+}
+.text-align {
+  text-align: center;
+}
+.hide {
+  display: none;
+}
+.content {
+  height: 100%;
+  width: 100%;
+}
+.display-flex-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.margin-top {
+  margin-top: 10rem;
+}
