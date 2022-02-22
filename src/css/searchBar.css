@@ -1,0 +1,17 @@
+.search-bar {
+  height: auto;
+  width: 100%;
+  margin-top: 5rem;
+}
+.search-wrapper {
+  position: relative;
+}
+.search-text {
+  height: 3rem;
+  width: 70%;
+  padding-left: 1.5rem;
+  border-radius: 1.5rem;
+  border: none;
+  outline: none;
+  font-size: medium;
+}
