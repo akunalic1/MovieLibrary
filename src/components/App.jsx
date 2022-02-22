@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 import "./../css/default.css";
 import LandingPage from "./LandingPage";
 import MovieDetails from "./movies/MovieDetails";
-import NewMovies from "./movies/NewMovies";
+import LatestMovies from "./movies/LatestMovies";
 import UpcomingMovies from "./movies/UpcomingMovies";
 import PopularMovies from "./movies/PopularMovies";
 import TopRatedMovies from "./movies/TopRatedMovies";
@@ -18,7 +18,7 @@ const App = () => {
       <Route exact path="/" element={<Navbar />}>
         <Route path="home" element={<LandingPage />}></Route>
         <Route path="/movies" element={<SearchBar />}>
-          <Route path="latest" element={<NewMovies />}></Route>
+          <Route path="latest" element={<LatestMovies />}></Route>
           <Route path="upcoming" element={<UpcomingMovies />}></Route>
           <Route path="best-rated" element={<TopRatedMovies />}></Route>
           <Route path="popular" element={<PopularMovies />}></Route>
