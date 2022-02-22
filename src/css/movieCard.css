@@ -1,0 +1,34 @@
+.movie-card {
+  width: 13rem;
+  background-color: var(--dark-red);
+  border-radius: 3px;
+}
+.movie-image {
+  width: 100%;
+  height: auto;
+}
+.movie-title {
+  height: 2rem;
+}
+.movie-card-info {
+  color: black;
+  padding: 0.5rem;
+}
+.movie-card-link {
+  text-decoration: none;
+}
+.movie-overview {
+  height: 3rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 0.5rem 0;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+.movie-release-date,
+.movie-average-vote {
+  font-size: small;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
