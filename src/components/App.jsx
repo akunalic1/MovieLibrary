@@ -8,7 +8,8 @@ import MovieDetails from "./movies/MovieDetails";
 import NewMovies from "./movies/NewMovies";
 import UpcomingMovies from "./movies/UpcomingMovies";
 import PopularMovies from "./movies/PopularMovies";
-import BestRatedMovies from "./movies/BestRatedMovies";
+import TopRatedMovies from "./movies/TopRatedMovies";
+
 import SearchBar from "./SearchBar";
 
 const App = () => {
@@ -19,7 +20,7 @@ const App = () => {
         <Route path="/movies" element={<SearchBar />}>
           <Route path="latest" element={<NewMovies />}></Route>
           <Route path="upcoming" element={<UpcomingMovies />}></Route>
-          <Route path="best-rated" element={<BestRatedMovies />}></Route>
+          <Route path="best-rated" element={<TopRatedMovies />}></Route>
           <Route path="popular" element={<PopularMovies />}></Route>
         </Route>
         <Route exact path="/movies/:id" element={<MovieDetails />}></Route>

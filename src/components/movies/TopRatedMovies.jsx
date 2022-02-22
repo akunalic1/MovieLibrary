@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import MovieList from "./MovieList";
-import movieDB from "./../../api/movieDB";
+import movieDB from "../../api/movieDB";
 
-const NewMovies = () => {
+const TopRatedMovies = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const response = await movieDB.get("/latest", {
+      const response = await movieDB.get("/top_rated", {
         params: {
           api_key: process.env.REACT_APP_MOVIE_DB_API_KEY,
         },
@@ -17,8 +17,7 @@ const NewMovies = () => {
     };
     fetchMovies();
   }, []);
-
   return <MovieList movies={movies} />;
 };
 
-export default NewMovies;
+export default TopRatedMovies;
