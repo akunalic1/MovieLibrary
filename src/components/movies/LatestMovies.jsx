@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import MovieList from "./MovieList";
-import movieDB from "./../../api/movieDB";
+import movieDB from "../../api/movieDB";
 
-const NewMovies = () => {
+const LatestMovies = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -21,4 +21,4 @@ const NewMovies = () => {
   return <MovieList movies={movies} />;
 };
 
-export default NewMovies;
+export default LatestMovies;
