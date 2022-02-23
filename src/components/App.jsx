@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 
@@ -19,11 +19,21 @@ import LogoutForm from "./auth/LogoutForm";
 import PublicRoute from "./auth/PublicRoute";
 
 import SearchBar from "./SearchBar";
+import { getLogedInUser, allStorage } from "../storageActions";
 
 const App = () => {
+  const [user, setUser] = useState(getLogedInUser());
+  const [allUsers, setAllUsers] = useState(allStorage());
+  const isAuthUser = !!getLogedInUser();
+
+  useEffect(() => {
+    console.log(user);
+    setAllUsers(allStorage());
+  }, [user]);
+
   return (
     <Routes>
-      <Route exact path="/" element={<Navbar />}>
+      <Route exact path="/" element={<Navbar isAuthUser={isAuthUser} />}>
         <Route path="home" element={<LandingPage />}></Route>
         <Route path="/movies" element={<SearchBar />}>
           <Route path="latest" element={<LatestMovies />}></Route>
@@ -32,15 +42,31 @@ const App = () => {
           <Route path="popular" element={<PopularMovies />}></Route>
         </Route>
         <Route exact path="/movies/:id" element={<MovieDetails />}></Route>
-        <Route path="/auth" element={<ProtectedRoute />}>
-          <Route path="account" element={<Account />}></Route>
-          <Route path="logout" element={<LogoutForm />}></Route>
+        <Route
+          path="/auth"
+          element={<ProtectedRoute isAuthUser={isAuthUser} setUser={setUser} />}
+        >
+          <Route path="account" element={<Account user={user} />}></Route>
+          <Route
+            path="logout"
+            element={<LogoutForm user={user} setUser={setUser} />}
+          ></Route>
         </Route>
-        <Route path="/auth" element={<PublicRoute />}>
-          <Route path="login" element={<LoginForm />}></Route>
-          <Route path="signup" element={<SignUpForm />}></Route>
+        <Route path="/auth" element={<PublicRoute isAuthUser={isAuthUser} />}>
+          <Route
+            path="login"
+            element={
+              <LoginForm storageUsers={allStorage()} setUser={setUser} />
+            }
+          ></Route>
+          <Route
+            path="signup"
+            element={<SignUpForm storageUsers={allUsers} setUser={setUser} />}
+          ></Route>
+          <Route path="*" exact={true} element={<GenericNotFound />} />
         </Route>
         <Route path="*" exact={true} element={<GenericNotFound />} />
+        <Route path="404" element={<GenericNotFound />}></Route>
       </Route>
     </Routes>
   );
