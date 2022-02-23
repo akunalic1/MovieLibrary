@@ -61,7 +61,7 @@ const Navbar = ({ isAuthUser }) => {
         </div>
         <div className="rightSide">
           {!isAuthUser ? (
-            <div className="buttons display-flex-style">
+            <div className="buttons ">
               <Link
                 className="black-btn btn btn-radius white-border"
                 to="/auth/signup"
