@@ -60,7 +60,7 @@ const LoginForm = ({ storageUsers, setUser }) => {
       console.log(formValues);
       logInUser(formValues.email, formValues.password);
       setUser({ email: formValues.email, password: formValues.password });
-      navigate("/");
+      navigate("/home");
     }
   }, [errorValues]);
   const reset = () => {

@@ -17,7 +17,7 @@ const LogoutForm = ({ user, setUser }) => {
   const onLogoutClick = () => {
     localStorage.removeItem("logedInUser");
     setUser(null);
-    navigate("/");
+    navigate("/home");
   };
 
   return (
