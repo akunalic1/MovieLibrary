@@ -1,11 +1,7 @@
-.movie-links {
-  padding: 1rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
 .navbar {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
   position: fixed;
   top: 0;
   width: 100%;
@@ -15,12 +11,12 @@
 .navbar-color {
   background-color: var(--dark-gray);
 }
-.movie-links > div {
+.navbar > div > div {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-.movie-links > div > * {
+.navbar > div > div > * {
   text-decoration: none;
   color: white;
   font-weight: 600;
@@ -41,4 +37,76 @@
 }
 .movie-icon {
   margin-right: 15px;
+}
+.leftSide {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.buttons {
+  justify-content: flex-end;
+}
+.barsBtn {
+  display: none;
+}
+#homeBtn,
+#searchBtn * {
+  background-color: var(--dark-red);
+  padding: 0;
+  display: none;
+  padding: 0;
+}
+@media screen and (max-width: 960px) {
+  .links > * {
+    margin: 0 0.5rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .navbar {
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+  }
+  #hidden {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 4rem;
+    padding: 1rem;
+    background-color: var(--dark-red);
+    opacity: 0.9;
+    border-radius: 3px;
+  }
+  .barsBtn,
+  .homeBtn {
+    display: flex;
+    justify-self: flex-start;
+    border: none;
+    outline: none;
+    padding: 3px;
+    border-radius: 3px;
+  }
+  .barsBtn:hover {
+    background-color: var(--dark-red);
+    opacity: 0.9;
+  }
+  #hidden * {
+    display: flex;
+    padding: 0.6rem;
+    color: white;
+  }
+  #bars-icon {
+    width: 1.6rem;
+    height: auto;
+  }
+  .navbar {
+    justify-content: space-between;
+  }
+  #searchBtn {
+    display: none;
+  }
+  .links *,
+  .navbar .logo {
+    display: none;
+  }
 }
