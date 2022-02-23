@@ -1,19 +1,29 @@
-import React, { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
-import { faFilm } from "@fortawesome/free-solid-svg-icons";
+import React, { createRef, useEffect, useState } from "react";
+import { Link, Outlet, useOutletContext } from "react-router-dom";
+import { faColonSign, faFilm } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 import "../css/navbar.css";
 
 const Navbar = ({ isAuthUser }) => {
+  const [showIcon, setShowIcon] = useState(true);
+  const [showLinks, setShowLinks] = useState(true);
+
   const links = ["latest", "upcoming", "best-rated", "popular"];
+
+  const searchIconRef = createRef();
+  useEffect(() => {
+    if (showIcon) searchIconRef.current.classList.remove("hide");
+    else searchIconRef.current.classList.add("hide");
+  }, [showIcon]);
+
   return (
     <div>
       <div className="movie-links navbar navbar-color" id="navbar">
         <div className="logo">
-          <FontAwesomeIcon className="movie-icon" icon={faFilm} />
           <Link to="/home">
+            <FontAwesomeIcon className="movie-icon" icon={faFilm} />
             MOVIE<span className="text-red">Library</span>
           </Link>
         </div>
@@ -23,7 +33,9 @@ const Navbar = ({ isAuthUser }) => {
           <Link to={`/movies/${links[2]}`}>Best Rated</Link>
           <Link to={`/movies/${links[3]}`}>Popular</Link>
           <Link to={`/movies/${links[3]}`}>
-            <FontAwesomeIcon icon={faMagnifyingGlass} id="search-bar-icon" />
+            <div ref={searchIconRef}>
+              <FontAwesomeIcon icon={faMagnifyingGlass} id="search-bar-icon" />
+            </div>
           </Link>
         </div>
         {!isAuthUser ? (
@@ -56,7 +68,7 @@ const Navbar = ({ isAuthUser }) => {
           </div>
         )}
       </div>
-      <Outlet />
+      <Outlet context={[showIcon, setShowIcon]} />
     </div>
   );
 };
