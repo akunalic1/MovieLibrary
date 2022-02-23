@@ -12,7 +12,7 @@ import "../css/navbar.css";
 
 const Navbar = ({ isAuthUser }) => {
   const [showIcon, setShowIcon] = useState(true);
-  const [showLinks, setShowLinks] = useState(true);
+  const [showLinks, setShowLinks] = useState(false);
 
   const navigate = useNavigate();
 
