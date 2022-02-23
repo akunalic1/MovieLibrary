@@ -38,7 +38,7 @@ const App = () => {
         <Route path="/movies" element={<SearchBar />}>
           <Route path="latest" element={<LatestMovies />}></Route>
           <Route path="upcoming" element={<UpcomingMovies />}></Route>
-          <Route path="best-rated" element={<TopRatedMovies />}></Route>
+          <Route path="top_rated" element={<TopRatedMovies />}></Route>
           <Route path="popular" element={<PopularMovies />}></Route>
         </Route>
         <Route exact path="/movies/:id" element={<MovieDetails />}></Route>
@@ -55,9 +55,7 @@ const App = () => {
         <Route path="/auth" element={<PublicRoute isAuthUser={isAuthUser} />}>
           <Route
             path="login"
-            element={
-              <LoginForm storageUsers={allStorage()} setUser={setUser} />
-            }
+            element={<LoginForm storageUsers={allUsers} setUser={setUser} />}
           ></Route>
           <Route
             path="signup"

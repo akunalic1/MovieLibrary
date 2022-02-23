@@ -24,8 +24,6 @@ const Navbar = ({ isAuthUser }) => {
     else searchIconRef.current.classList.add("hide");
   }, [showIcon]);
 
-  const links = ["latest", "upcoming", "best-rated", "popular"];
-
   return (
     <div>
       <div className="navbar navbar-color" id="navbar">
@@ -47,11 +45,11 @@ const Navbar = ({ isAuthUser }) => {
             >
               <FontAwesomeIcon icon={faHome} />
             </button>
-            <Link to={`/movies/${links[0]}`}>Latest</Link>
-            <Link to={`/movies/${links[1]}`}>Upcoming</Link>
-            <Link to={`/movies/${links[2]}`}>Best Rated</Link>
-            <Link to={`/movies/${links[3]}`}>Popular</Link>
-            <Link to={`/movies/${links[3]}`}>
+            <Link to={`/movies/latest`}>Latest</Link>
+            <Link to={`/movies/upcoming`}>Upcoming</Link>
+            <Link to={`/movies/top_rated`}>Top Rated</Link>
+            <Link to={`/movies/popular`}>Popular</Link>
+            <Link to={`/movies/popular`}>
               <div id="searchBtn" ref={searchIconRef}>
                 <FontAwesomeIcon
                   icon={faMagnifyingGlass}

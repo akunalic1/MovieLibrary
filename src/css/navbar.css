@@ -51,11 +51,13 @@
 }
 #homeBtn,
 #searchBtn * {
-  background-color: var(--dark-red);
   padding: 0;
-  display: none;
   padding: 0;
 }
+#homeBtn {
+  display: none;
+}
+
 @media screen and (max-width: 960px) {
   .links > * {
     margin: 0 0.5rem;
@@ -85,6 +87,7 @@
     outline: none;
     padding: 3px;
     border-radius: 3px;
+    background-color: var(--dark-red);
   }
   .barsBtn:hover {
     background-color: var(--dark-red);
@@ -96,14 +99,11 @@
     color: white;
   }
   #bars-icon {
-    width: 1.6rem;
+    width: 1.5rem;
     height: auto;
   }
   .navbar {
     justify-content: space-between;
-  }
-  #searchBtn {
-    display: none;
   }
   .links *,
   .navbar .logo {
