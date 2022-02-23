@@ -50,5 +50,9 @@ body {
   align-items: center;
 }
 .margin-top {
-  margin-top: 10rem;
+  margin-top: 25%;
+}
+button,
+a {
+  cursor: pointer;
 }
