@@ -1,16 +1,41 @@
 import { faPerson, faStar } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { MOVIE_IMAGE_PATH } from "../../constants";
 
 import "../../css/movieDetails.css";
 import "../../css/auth.css";
+import movieDB from "../../api/movieDB";
+import {
+  Navigate,
+  useNavigate,
+  useParams,
+  useOutletContext,
+} from "react-router-dom";
 
 const MovieDetails = () => {
+  const [showIcon, setShowIcon] = useOutletContext();
   const [movie, setMovie] = useState(null);
 
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  console.log("movie details called ", id);
   useEffect(() => {
+    setShowIcon(true);
+    const fetchDetails = async () => {
+      const response = await movieDB.get(`/${id}`, {
+        params: {
+          api_key: process.env.REACT_APP_MOVIE_DB_API_KEY,
+        },
+      });
+      setMovie(response.data);
+      console.log(response);
+    };
+    fetchDetails().catch((e) => {
+      console.log(e);
+      navigate("/404");
+    });
     //    dispatch(fetchMovie(id, setMovie));
   }, []);
 

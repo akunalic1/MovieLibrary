@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./../css/landingPage.css";
+import { useOutletContext } from "react-router-dom";
 
 const LandingPage = () => {
-  if (document.getElementById("search-bar-icon"))
-    document.getElementById("search-bar-icon").classList.remove("hide");
+  const [showIcon, setShowIcon] = useOutletContext();
+
+  useEffect(() => {
+    setShowIcon(true);
+  }, []);
   return (
     <div className="landing display-flex-style">
       <div className="landing-welcome text-align">

@@ -1,9 +1,14 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import { Navigate, useOutletContext, Outlet } from "react-router-dom";
 
 const PublicRoute = ({ isAuthUser }) => {
-  return !isAuthUser ? <Outlet /> : <Navigate to={"/"}></Navigate>;
+  const [showIcon, setShowIcon] = useOutletContext();
+
+  return !isAuthUser ? (
+    <Outlet context={[showIcon, setShowIcon]} />
+  ) : (
+    <Navigate to={"/"}></Navigate>
+  );
 };
 
 export default PublicRoute;

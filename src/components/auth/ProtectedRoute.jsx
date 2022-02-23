@@ -1,8 +1,13 @@
 import React from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useOutletContext } from "react-router-dom";
 
 const ProtectedRoute = ({ isAuthUser }) => {
-  return isAuthUser ? <Outlet /> : <Navigate to={"/"}></Navigate>;
+  const [showIcon, setShowIcon] = useOutletContext();
+  return isAuthUser ? (
+    <Outlet context={[showIcon, setShowIcon]} />
+  ) : (
+    <Navigate to={"/"}></Navigate>
+  );
 };
 
 export default ProtectedRoute;
