@@ -36,7 +36,6 @@ const MovieDetails = () => {
       console.log(e);
       navigate("/404");
     });
-    //    dispatch(fetchMovie(id, setMovie));
   }, []);
 
   const renderGenres = (movie) => {

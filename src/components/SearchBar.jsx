@@ -10,7 +10,10 @@ const SearchBar = () => {
 
   useEffect(() => {
     setShowIcon(false);
-    //todo
+  }, []);
+
+  useEffect(() => {
+    console.log(searchText);
   }, [searchText]);
 
   return (
@@ -23,7 +26,7 @@ const SearchBar = () => {
           onChange={(e) => setSearchText(e.target.value)}
         ></input>
       </div>
-      <Outlet />
+      <Outlet context={[searchText]} />
     </div>
   );
 };

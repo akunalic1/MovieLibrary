@@ -1,23 +1,10 @@
-import React, { useEffect, useState } from "react";
-import MovieList from "./MovieList";
-import movieDB from "../../api/movieDB";
+import React from "react";
+import { useOutletContext } from "react-router-dom";
+import FilterMovies from "./FilterMovies";
 
 const PopularMovies = () => {
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const response = await movieDB.get("/popular", {
-        params: {
-          api_key: process.env.REACT_APP_MOVIE_DB_API_KEY,
-        },
-      });
-      console.log(response.data.results);
-      setMovies(response.data.results);
-    };
-    fetchMovies();
-  }, []);
-  return <MovieList movies={movies} />;
+  const [searchText] = useOutletContext("");
+  return <FilterMovies url="popular" searchText={searchText}></FilterMovies>;
 };
 
 export default PopularMovies;
