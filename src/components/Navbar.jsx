@@ -1,6 +1,6 @@
 import React, { createRef, useEffect, useState } from "react";
 import { Link, Outlet, useNavigate, useOutletContext } from "react-router-dom";
-import { faColonSign, faFilm } from "@fortawesome/free-solid-svg-icons";
+import { faFilm } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlass,
@@ -11,18 +11,20 @@ import {
 import "../css/navbar.css";
 
 const Navbar = ({ isAuthUser }) => {
+  /*
+   * hooks
+   */
   const [showIcon, setShowIcon] = useState(true);
   const [showLinks, setShowLinks] = useState(false);
-
+  const searchIconRef = createRef();
   const navigate = useNavigate();
 
-  const links = ["latest", "upcoming", "best-rated", "popular"];
-
-  const searchIconRef = createRef();
   useEffect(() => {
     if (showIcon) searchIconRef.current.classList.remove("hide");
     else searchIconRef.current.classList.add("hide");
   }, [showIcon]);
+
+  const links = ["latest", "upcoming", "best-rated", "popular"];
 
   return (
     <div>

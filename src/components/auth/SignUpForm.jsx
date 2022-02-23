@@ -1,5 +1,5 @@
-import React, { createRef, useEffect, useState } from "react";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 
 import "../../css/auth.css";
 import { allStorage, signUpUser } from "../../storageActions";
@@ -30,27 +30,23 @@ const validate = (values) => {
 };
 
 const SignUpForm = ({ storageUsers, setUser }) => {
+  /*
+   * variables
+   */
   const initialValues = {
     firstName: "",
     lastName: "",
     email: "",
     password: "",
   };
+  /*
+   * hooks
+   */
   const [formValues, setFormValues] = useState(initialValues);
   const [errorValues, setErrorValues] = useState({});
   const [submited, setSubmited] = useState(false);
   const [showIcon, setShowIcon] = useOutletContext();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setErrorValues(validate(formValues));
-    setSubmited(true);
-  };
   useEffect(() => {
     setShowIcon(true);
     if (Object.keys(errorValues).length === 0 && submited) {
@@ -64,11 +60,25 @@ const SignUpForm = ({ storageUsers, setUser }) => {
       setUser({ email: formValues.email, password: formValues.password });
     }
   }, [errorValues]);
+  /*
+   * functions
+   */
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setErrorValues(validate(formValues));
+    setSubmited(true);
+  };
   const reset = () => {
     setFormValues(initialValues);
     setErrorValues({});
     setSubmited(false);
   };
+
   return (
     <div className="google-signup-page margin-top">
       <form className="form glassmorphism" onSubmit={handleSubmit}>

@@ -3,17 +3,14 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 
 import "../../css/auth.css";
 
-import { allStorage, signUpUser } from "../../storageActions";
-
 const LogoutForm = ({ user, setUser }) => {
   const [showIcon, setShowIcon] = useOutletContext();
-  console.log("user unutar logout forme", user);
-
   const navigate = useNavigate();
 
   useEffect(() => {
     setShowIcon(true);
   }, []);
+
   const onLogoutClick = () => {
     localStorage.removeItem("logedInUser");
     setUser(null);

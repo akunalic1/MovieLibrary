@@ -28,15 +28,39 @@ const validate = (values, storageUsers) => {
 };
 
 const LoginForm = ({ storageUsers, setUser }) => {
-  const navigate = useNavigate();
-  const [showIcon, setShowIcon] = useOutletContext();
+  /*
+   * variables
+   */
+
   const initialValues = {
     email: "",
     password: "",
   };
+  /*
+   * hooks
+   */
+  const navigate = useNavigate();
+  const [showIcon, setShowIcon] = useOutletContext();
   const [formValues, setFormValues] = useState(initialValues);
   const [errorValues, setErrorValues] = useState({});
   const [submited, setSubmited] = useState(false);
+
+  useEffect(() => {
+    setShowIcon(true);
+    if (Object.keys(errorValues).length === 0 && submited) {
+      logInUser(formValues.email, formValues.password);
+      setUser({ email: formValues.email, password: formValues.password });
+      navigate("/home");
+    }
+  }, [errorValues]);
+  /*
+   * functions
+   */
+  const reset = () => {
+    setFormValues(initialValues);
+    setErrorValues({});
+    setSubmited(false);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,26 +71,6 @@ const LoginForm = ({ storageUsers, setUser }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrorValues(validate(formValues, storageUsers));
-  };
-  useEffect(() => {
-    setShowIcon(true);
-    console.log(
-      "eeror values unutar useefect ",
-      errorValues,
-      " Object.keys(errorValues).length",
-      Object.keys(errorValues).length
-    );
-    if (Object.keys(errorValues).length === 0 && submited) {
-      console.log(formValues);
-      logInUser(formValues.email, formValues.password);
-      setUser({ email: formValues.email, password: formValues.password });
-      navigate("/home");
-    }
-  }, [errorValues]);
-  const reset = () => {
-    setFormValues(initialValues);
-    setErrorValues({});
-    setSubmited(false);
   };
 
   return (
