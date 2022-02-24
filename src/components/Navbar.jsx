@@ -1,5 +1,11 @@
 import React, { createRef, useEffect, useState } from "react";
-import { Link, Outlet, useNavigate, useOutletContext } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useNavigate,
+  useOutletContext,
+} from "react-router-dom";
 import { faFilm } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -32,10 +38,10 @@ const Navbar = ({ isAuthUser }) => {
             <FontAwesomeIcon icon={faBars} id="bars-icon" />
           </button>
           <div className="logo">
-            <Link to="/home">
+            <NavLink to="/home">
               <FontAwesomeIcon className="movie-icon" icon={faFilm} />
               MOVIE<span className="text-red">Library</span>
-            </Link>
+            </NavLink>
           </div>
           <div className="links" id={showLinks ? "hidden" : ""}>
             <button
@@ -45,18 +51,18 @@ const Navbar = ({ isAuthUser }) => {
             >
               <FontAwesomeIcon icon={faHome} />
             </button>
-            <Link to={`/movies/latest`}>Latest</Link>
-            <Link to={`/movies/upcoming`}>Upcoming</Link>
-            <Link to={`/movies/top_rated`}>Top Rated</Link>
-            <Link to={`/movies/popular`}>Popular</Link>
-            <Link to={`/movies/popular`}>
+            <NavLink to={`/movies/latest`}>Latest</NavLink>
+            <NavLink to={`/movies/upcoming`}>Upcoming</NavLink>
+            <NavLink to={`/movies/top_rated`}>Top Rated</NavLink>
+            <NavLink to={`/movies/popular`}>Popular</NavLink>
+            <NavLink to={`/movies/popular`}>
               <div id="searchBtn" ref={searchIconRef}>
                 <FontAwesomeIcon
                   icon={faMagnifyingGlass}
                   id="search-bar-icon"
                 />
               </div>
-            </Link>
+            </NavLink>
           </div>
         </div>
         <div className="rightSide">

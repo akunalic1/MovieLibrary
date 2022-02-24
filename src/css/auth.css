@@ -5,7 +5,7 @@
   justify-content: center;
 }
 .glassmorphism {
-  border-radius: 3px;
+  border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
 }
@@ -28,6 +28,7 @@ input {
   height: 2rem;
   width: 15rem;
   padding: 10px;
+  border-radius: 3px;
   border: none;
   outline: none;
 }

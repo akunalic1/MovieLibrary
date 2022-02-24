@@ -100,13 +100,13 @@ const LoginForm = ({ storageUsers, setUser }) => {
         </div>
 
         <button
-          className="btn red-btn btn-full-w text-w-6 border"
+          className="btn red-btn btn-full-w text-w-6 btn-radius"
           type="submit"
         >
           Log In
         </button>
         <button
-          className="btn black-btn btn-full-w text-w-6"
+          className="btn black-btn btn-full-w text-w-6 btn-radius"
           type="button"
           onClick={reset}
         >

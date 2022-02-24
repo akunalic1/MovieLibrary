@@ -126,11 +126,14 @@ const SignUpForm = ({ storageUsers, setUser }) => {
           ></input>
           <p className="error-message">{errorValues.password}</p>
         </div>
-        <button className="btn red-btn btn-full-w text-w-6" type="submit">
+        <button
+          className="btn red-btn btn-full-w text-w-6 btn-radius"
+          type="submit"
+        >
           Sign Up
         </button>
         <button
-          className="btn black-btn btn-full-w text-w-6"
+          className="btn black-btn btn-full-w text-w-6 btn-radius"
           type="button"
           onClick={reset}
         >
