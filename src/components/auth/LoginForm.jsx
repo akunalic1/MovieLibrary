@@ -80,6 +80,7 @@ const LoginForm = ({ storageUsers, setUser }) => {
           <input
             name="email"
             type={"email"}
+            placeholder="Email..."
             value={formValues.email}
             onChange={handleChange}
             autoComplete="on"
@@ -91,6 +92,7 @@ const LoginForm = ({ storageUsers, setUser }) => {
           <input
             name="password"
             type={"password"}
+            placeholder="Password..."
             value={formValues.password}
             onChange={handleChange}
             autoComplete="on"

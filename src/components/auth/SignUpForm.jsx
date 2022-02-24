@@ -86,6 +86,7 @@ const SignUpForm = ({ storageUsers, setUser }) => {
           <input
             name="firstName"
             type={"text"}
+            placeholder="First name..."
             value={formValues.firstName}
             onChange={handleChange}
             autoComplete="on"
@@ -98,6 +99,7 @@ const SignUpForm = ({ storageUsers, setUser }) => {
             name="lastName"
             type={"text"}
             autoComplete="on"
+            placeholder="Last name..."
             value={formValues.lastName}
             onChange={handleChange}
             className="without-border"
@@ -108,6 +110,7 @@ const SignUpForm = ({ storageUsers, setUser }) => {
           <input
             name="email"
             type={"email"}
+            placeholder="Email..."
             value={formValues.email}
             onChange={handleChange}
             autoComplete="on"
@@ -119,6 +122,7 @@ const SignUpForm = ({ storageUsers, setUser }) => {
           <input
             name="password"
             type={"password"}
+            placeholder="Password..."
             autoComplete="on"
             value={formValues.password}
             onChange={handleChange}
