@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 
 import "./../css/default.css";
@@ -24,9 +24,13 @@ import { getLogedInUser, allStorage } from "../storageActions";
 const App = () => {
   const [user, setUser] = useState(getLogedInUser());
   const [allUsers, setAllUsers] = useState(allStorage());
+
   const isAuthUser = !!getLogedInUser();
 
-  useEffect(() => {
+  /* useEffect(() => {
+    navigate("/home");
+  }, []);
+  */ useEffect(() => {
     console.log(user);
     setAllUsers(allStorage());
   }, [user]);
