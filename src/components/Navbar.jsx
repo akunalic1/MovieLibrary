@@ -26,6 +26,10 @@ const Navbar = ({ isAuthUser }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (window.location.pathname === "/") navigate("/home");
+  }, [window.location.pathname]);
+
+  useEffect(() => {
     if (showIcon) searchIconRef.current.classList.remove("hide");
     else searchIconRef.current.classList.add("hide");
   }, [showIcon]);

@@ -24,13 +24,10 @@ import { getLogedInUser, allStorage } from "../storageActions";
 const App = () => {
   const [user, setUser] = useState(getLogedInUser());
   const [allUsers, setAllUsers] = useState(allStorage());
-
+  const navigate = useNavigate();
   const isAuthUser = !!getLogedInUser();
 
-  /* useEffect(() => {
-    navigate("/home");
-  }, []);
-  */ useEffect(() => {
+  useEffect(() => {
     console.log(user);
     setAllUsers(allStorage());
   }, [user]);
@@ -38,8 +35,8 @@ const App = () => {
   return (
     <Routes>
       <Route exact path="/" element={<Navbar isAuthUser={isAuthUser} />}>
-        <Route path="home" element={<LandingPage />}></Route>
-        <Route path="/movies" element={<SearchBar />}>
+        <Route index={true} path="home" element={<LandingPage />}></Route>
+        <Route path="movies" element={<SearchBar />}>
           <Route path="latest" element={<LatestMovies />}></Route>
           <Route path="upcoming" element={<UpcomingMovies />}></Route>
           <Route path="top_rated" element={<TopRatedMovies />}></Route>
