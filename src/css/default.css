@@ -52,7 +52,16 @@ body {
 .margin-top {
   margin-top: 20%;
 }
+.margin-top-btn {
+  margin-top: 1rem;
+}
 button,
 a {
   cursor: pointer;
+}
+
+@media screen and (max-width: 850px) {
+  .margin-top {
+    margin-top: 10%;
+  }
 }

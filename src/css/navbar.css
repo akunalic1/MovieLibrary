@@ -1,7 +1,7 @@
 .navbar {
   padding: 1rem;
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 2fr 5fr 2fr;
   position: fixed;
   top: 0;
   width: 100%;
@@ -36,11 +36,16 @@
   margin: 0 1rem;
 }
 .movie-icon {
-  margin-right: 15px;
+  margin-right: 10px;
 }
 .leftSide {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
+}
+.middle {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 .buttons {
@@ -61,24 +66,28 @@
 @media screen and (max-width: 960px) {
   .links > * {
     margin: 0 0.5rem;
+    font-size: 0.8rem;
   }
 }
 
 @media screen and (max-width: 850px) {
   .navbar {
-    position: relative;
-    grid-template-columns: 1fr 1fr;
+    /*position: relative;*/
+    grid-template-columns: 1fr 1fr 1fr;
   }
   #hidden {
     display: flex;
     flex-direction: column;
     position: absolute;
     top: 4rem;
+    left: 1rem;
     padding: 1rem;
     background-color: var(--dark-red);
     opacity: 0.9;
     border-radius: 3px;
+    align-items: flex-start;
   }
+
   .barsBtn,
   .homeBtn {
     display: flex;
@@ -93,9 +102,11 @@
     background-color: var(--dark-red);
     opacity: 0.9;
   }
-  #hidden * {
+  #hidden {
     display: flex;
-    padding: 0.6rem;
+  }
+  #hidden * {
+    display: block;
     color: white;
   }
   #bars-icon {
