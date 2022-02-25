@@ -7,7 +7,7 @@ const ProtectedRoute = ({ isAuthUser }) => {
   return isAuthUser ? (
     <Outlet context={[showIcon, setShowIcon]} />
   ) : (
-    <Navigate to={"/"}></Navigate>
+    <Navigate to={"/home"}></Navigate>
   );
 };
 

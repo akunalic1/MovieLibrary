@@ -28,7 +28,6 @@ const App = () => {
   const isAuthUser = !!getLogedInUser();
 
   useEffect(() => {
-    console.log(user);
     setAllUsers(allStorage());
   }, [user]);
 
