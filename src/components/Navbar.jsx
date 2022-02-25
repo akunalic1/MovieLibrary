@@ -34,6 +34,13 @@ const Navbar = ({ isAuthUser }) => {
     else searchIconRef.current.classList.add("hide");
   }, [showIcon]);
 
+  /*
+   * functions
+   */
+
+  const setStyle = ({ isActive }) =>
+    isActive ? { borderBottom: "2px solid white" } : undefined;
+
   return (
     <div>
       <div className="navbar navbar-color" id="navbar">
@@ -55,11 +62,19 @@ const Navbar = ({ isAuthUser }) => {
             >
               <FontAwesomeIcon icon={faHome} />
             </button>
-            <NavLink to={`/movies/latest`}>Latest</NavLink>
-            <NavLink to={`/movies/upcoming`}>Upcoming</NavLink>
-            <NavLink to={`/movies/top_rated`}>Top Rated</NavLink>
-            <NavLink to={`/movies/popular`}>Popular</NavLink>
-            <NavLink to={`/movies/popular`}>
+            <NavLink style={setStyle} to={`/movies/latest`}>
+              Latest
+            </NavLink>
+            <NavLink style={setStyle} to={`/movies/upcoming`}>
+              Upcoming
+            </NavLink>
+            <NavLink style={setStyle} to={`/movies/top_rated`}>
+              Top Rated
+            </NavLink>
+            <NavLink style={setStyle} to={`/movies/popular`}>
+              Popular
+            </NavLink>
+            <NavLink style={setStyle} to={`/movies/popular`}>
               <div id="searchBtn" ref={searchIconRef}>
                 <FontAwesomeIcon
                   icon={faMagnifyingGlass}
