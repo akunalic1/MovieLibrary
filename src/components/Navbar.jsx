@@ -39,11 +39,16 @@ const Navbar = ({ isAuthUser }) => {
    */
 
   const setStyle = ({ isActive }) =>
-    isActive ? { borderBottom: "2px solid white" } : undefined;
+    isActive
+      ? { borderBottom: "2px solid white", paddingBottom: "5px" }
+      : undefined;
 
   return (
     <div>
       <div className="navbar navbar-color" id="navbar">
+        {/*
+         * left side
+         */}
         <div className="leftSide">
           <button className="barsBtn" onClick={(e) => setShowLinks(!showLinks)}>
             <FontAwesomeIcon icon={faBars} id="bars-icon" />
@@ -54,6 +59,11 @@ const Navbar = ({ isAuthUser }) => {
               MOVIE<span className="text-red">Library</span>
             </NavLink>
           </div>
+        </div>
+        {/*
+         * middle side
+         */}
+        <div className="middle">
           <div className="links" id={showLinks ? "hidden" : ""}>
             <button
               id="homeBtn"
@@ -84,6 +94,9 @@ const Navbar = ({ isAuthUser }) => {
             </NavLink>
           </div>
         </div>
+        {/*
+         *right side
+         */}
         <div className="rightSide">
           {!isAuthUser ? (
             <div className="buttons ">
