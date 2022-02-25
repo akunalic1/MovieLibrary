@@ -20,10 +20,10 @@ const LogoutForm = ({ user, setUser }) => {
   return (
     <div className="logout-form  display-gap-s margin-top">
       <div className="form glassmorphism">
-        <h2>{user.email}</h2>
-        <h4>Are you sure you want to log out?</h4>
+        <h2 className="text-white">{user.email}</h2>
+        <h4 className="text-white">Are you sure you want to log out?</h4>
         <button
-          className="red-btn btn btn-full-w text-w-6"
+          className="red-btn btn-radius margin-top-btn btn btn-full-w text-w-6"
           onClick={() => onLogoutClick()}
         >
           Log Out
