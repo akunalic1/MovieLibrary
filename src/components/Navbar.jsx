@@ -1,11 +1,5 @@
 import React, { createRef, useEffect, useState } from "react";
-import {
-  Link,
-  NavLink,
-  Outlet,
-  useNavigate,
-  useOutletContext,
-} from "react-router-dom";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { faFilm } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -22,16 +16,29 @@ const Navbar = ({ isAuthUser }) => {
    */
   const [showIcon, setShowIcon] = useState(true);
   const [showLinks, setShowLinks] = useState(false);
+  const [navbarColor, setNavbarColor] = useState(true);
   const searchIconRef = createRef();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    handleScroll();
+  }, [window.scrollY]);
 
   useEffect(() => {
     if (window.location.pathname === "/") navigate("/home");
   }, [window.location.pathname]);
 
   useEffect(() => {
-    if (showIcon) searchIconRef.current.classList.remove("hide");
-    else searchIconRef.current.classList.add("hide");
+    showIcon
+      ? searchIconRef.current.classList.remove("hide")
+      : searchIconRef.current.classList.add("hide");
   }, [showIcon]);
 
   /*
@@ -43,9 +50,19 @@ const Navbar = ({ isAuthUser }) => {
       ? { borderBottom: "2px solid white", paddingBottom: "5px" }
       : undefined;
 
+  const handleScroll = () => {
+    if (window.scrollY > 20 && !navbarColor) {
+      setNavbarColor(true);
+    } else if (window.scrollY <= 20) {
+      setNavbarColor(false);
+    }
+  };
   return (
     <div>
-      <div className="navbar navbar-color" id="navbar">
+      <div
+        className={`navbar ${navbarColor ? "navbar-color" : ""}`}
+        id="navbar"
+      >
         {/*
          * left side
          */}

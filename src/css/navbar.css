@@ -95,7 +95,7 @@
     justify-self: flex-start;
     border: none;
     outline: none;
-    padding: 3px;
+    padding: 1px 3px;
     border-radius: 3px;
     background-color: var(--dark-red);
   }
@@ -124,4 +124,11 @@
 }
 .active-link {
   background-color: aqua;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    /*position: relative;*/
+    grid-template-columns: 1fr 1fr 3fr;
+  }
 }
