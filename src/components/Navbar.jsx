@@ -51,7 +51,8 @@ const Navbar = ({ isAuthUser }) => {
       : undefined;
 
   const handleScroll = () => {
-    if (window.scrollY > 20 && !navbarColor) {
+    console.log(window.scrollY);
+    if (window.scrollY > 20) {
       setNavbarColor(true);
     } else if (window.scrollY <= 20) {
       setNavbarColor(false);
