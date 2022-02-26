@@ -1,4 +1,51 @@
 .account {
-  margin-top: 10rem;
-  color: aliceblue;
+  white-space: nowrap;
+  width: fit-content;
+  margin: auto;
+  margin-top: min(12rem, 40%);
+}
+.account-image {
+  padding: 1rem;
+  display: inline-block;
+  width: fit-content;
+}
+.image {
+  width: clamp(8rem, 10vw, 10rem);
+}
+.user-info {
+  vertical-align: top;
+  width: fit-content;
+  display: inline-block;
+
+  padding: 1.8rem;
+}
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
+  font-size: clamp(0.7rem, 2vw, 1.2rem);
+}
+.label {
+  font-size: smaller;
+  font-weight: 400;
+  opacity: 0.6;
+  margin-bottom: 3px;
+}
+.small-img {
+  height: 2rem;
+}
+@media screen and (max-width: 30rem) {
+  .account,
+  .account-image {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+  }
+  .account-image {
+    width: 100%;
+  }
+  .image {
+    margin: auto;
+  }
 }
