@@ -12,7 +12,8 @@ export const allStorage = () => {
 }
 
 export const getLogedInUser = () => {
-    return JSON.parse(localStorage.getItem('logedInUser'))
+    const logedInUser = JSON.parse(localStorage.getItem('logedInUser'))
+    return allStorage().filter(user => logedInUser.email === user.email).at(0)
 }
 export const signUpUser = (firstName, lastName, email, password) => {
     console.log('unutar local storage sign up', firstName, lastName, email, password)
