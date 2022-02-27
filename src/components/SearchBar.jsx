@@ -12,7 +12,7 @@ const SearchBar = () => {
   }, []);
 
   useEffect(() => {
-    if (searchText.length) {
+    if (searchText.length || tempText.length) {
       const timeoutId = setTimeout(() => {
         setTempText(searchText);
       }, 700);
