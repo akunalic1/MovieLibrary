@@ -1,6 +1,8 @@
 # MovieLibrary
 MovieLibrary is a single-page web application that offers the ability to search for existing movies by name in specific categories. It is possible to view the details of each film. There is an option to create an account, but it's not necessary to use the application. 
 
+![image](https://user-images.githubusercontent.com/72765733/158012815-01b84e31-3701-4e35-8ed5-91da87895a63.png)
+
 ## Built with
 - React
 - CSS
